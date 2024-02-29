@@ -10,6 +10,7 @@ This course learn me about:
 - Pratical knowledge about React Hooks
 - Pratical knowledge React Router
 - CSS Modules
+- Figma - [layout design](https://www.figma.com/file/srib5Cf9sdlwd4BJxReqy9/Zrozumie%C4%87-React---Projekt-Praktyczny?node-id=172%3A10&mode=dev)
 
 ---
 
