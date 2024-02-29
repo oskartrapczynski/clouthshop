@@ -1,5 +1,6 @@
+import { Layout } from './components';
 function App() {
-  return <p>witaj w sklepie</p>;
+  return <Layout />;
 }
 
 export default App;
