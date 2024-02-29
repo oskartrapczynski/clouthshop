@@ -14,6 +14,10 @@ import Product from './Product/Product';
 import Bestsellers from './Bestsellers/Bestsellers';
 import FavouritesList from './FavouritesList/FavouritesList';
 import FavouriteProduct from './FavouriteProduct/FavouriteProduct';
+import CartProduct from './CartProduct/CartProduct';
+import CartProductList from './CartProductList/CartProductList';
+import FlexContainer from './FlexContainer/FlexContainer';
+import CartSummary from './CartSummary/CartSummary';
 
 export {
   Footer,
@@ -32,4 +36,8 @@ export {
   Bestsellers,
   FavouritesList,
   FavouriteProduct,
+  CartProduct,
+  CartProductList,
+  FlexContainer,
+  CartSummary,
 };
