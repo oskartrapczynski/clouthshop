@@ -12,6 +12,8 @@ import Hero from './Hero/Hero';
 import FullWidthButton from './FullWidthButton/FullWidthButton';
 import Product from './Product/Product';
 import Bestsellers from './Bestsellers/Bestsellers';
+import FavouritesList from './FavouritesList/FavouritesList';
+import FavouriteProduct from './FavouriteProduct/FavouriteProduct';
 
 export {
   Footer,
@@ -28,4 +30,6 @@ export {
   FullWidthButton,
   Product,
   Bestsellers,
+  FavouritesList,
+  FavouriteProduct,
 };
