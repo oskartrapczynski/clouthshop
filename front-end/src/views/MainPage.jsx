@@ -1,4 +1,4 @@
-import { Layout, Hero, Bestsellers } from '@components';
+import { Layout, Hero, Products } from '@components';
 import { COVER_PHOTO } from '@assets';
 
 const MainPage = () => {
@@ -64,7 +64,7 @@ const MainPage = () => {
   return (
     <Layout>
       <Hero heroImage={COVER_PHOTO} />
-      <Bestsellers products={products} />
+      <Products products={products} headerText="Sprawdź nasze bestsellery!" />
     </Layout>
   );
 };
