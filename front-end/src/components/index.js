@@ -21,6 +21,9 @@ import CartSummary from './CartSummary/CartSummary';
 import ExpandableMenu from './ExpandableMenu/ExpandableMenu';
 import Breadcrumbs from './Breadcrumbs/Breadcrumbs';
 import Pagination from './Pagination/Pagination';
+import Photos from './Photos/Photos';
+import Details from './Details/Details';
+import Accordion from './Accordion/Accordion';
 
 export {
   Footer,
@@ -46,4 +49,7 @@ export {
   ExpandableMenu,
   Breadcrumbs,
   Pagination,
+  Photos,
+  Details,
+  Accordion,
 };
