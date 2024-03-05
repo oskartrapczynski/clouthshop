@@ -1,3 +1,4 @@
 import mainPageLoader from './mainPageLoader';
+import productListLoader from './productListLoader';
 
-export { mainPageLoader };
+export { mainPageLoader, productListLoader };

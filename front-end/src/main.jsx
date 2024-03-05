@@ -11,7 +11,7 @@ import {
   ProductsList,
   ProductDetails,
 } from '@views';
-import { mainPageLoader } from '@api';
+import { mainPageLoader, productListLoader } from '@api';
 
 const router = createBrowserRouter([
   {
@@ -20,13 +20,17 @@ const router = createBrowserRouter([
     children: [
       { path: '/ulubione', element: <Favourites /> },
       { path: '/koszyk', element: <Cart /> },
+      { path: '/szczegoly', element: <ProductDetails /> },
       {
         path: '/:gender?',
         element: <MainPage />,
         loader: mainPageLoader,
       },
-      { path: '/lista-produktow', element: <ProductsList /> },
-      { path: '/szczegoly', element: <ProductDetails /> },
+      {
+        path: '/:gender/:category/:subcategory?',
+        element: <ProductsList />,
+        loader: productListLoader,
+      },
     ],
   },
 ]);
