@@ -1,9 +1,4 @@
-import {
-  Layout,
-  CartProductList,
-  CartSummary,
-  FlexContainer,
-} from '@components';
+import { CartProductList, CartSummary, FlexContainer } from '@components';
 
 const Cart = () => {
   const products = [
@@ -47,12 +42,10 @@ const Cart = () => {
     },
   ];
   return (
-    <Layout>
-      <FlexContainer>
-        <CartProductList products={products} />
-        <CartSummary products={products} />
-      </FlexContainer>
-    </Layout>
+    <FlexContainer>
+      <CartProductList products={products} />
+      <CartSummary products={products} />
+    </FlexContainer>
   );
 };
 

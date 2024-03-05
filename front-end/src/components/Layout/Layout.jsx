@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom';
 import {
   Footer,
   MainMenu,
@@ -9,7 +10,7 @@ import {
   MainContent,
 } from '..';
 
-const Layout = ({ children }) => {
+const Layout = () => {
   return (
     <>
       <MainContent>
@@ -22,7 +23,7 @@ const Layout = ({ children }) => {
           </div>
         </TopBar>
         <CategoryMenu />
-        {children}
+        <Outlet />
       </MainContent>
       <Footer />
     </>

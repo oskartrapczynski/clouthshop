@@ -1,7 +1,7 @@
 import styles from './FavouritesList.module.css';
 import { FavouriteProduct, CenterContent } from '@components';
 
-const FavouritesList = () => {
+const FavouritesList = ({ favourites }) => {
   return (
     <CenterContent>
       <div className={styles.favouritesList}>

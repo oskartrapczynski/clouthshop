@@ -1,5 +1,4 @@
 import {
-  Layout,
   FlexContainer,
   ExpandableMenu,
   Breadcrumbs,
@@ -164,16 +163,14 @@ const ProductsList = () => {
   ];
 
   return (
-    <Layout>
-      <FlexContainer>
-        <ExpandableMenu />
-        <div>
-          <Breadcrumbs />
-          <Products products={products} headerText="Odzież" />
-          <Pagination numberOfPages={5} />
-        </div>
-      </FlexContainer>
-    </Layout>
+    <FlexContainer>
+      <ExpandableMenu />
+      <div>
+        <Breadcrumbs />
+        <Products products={products} headerText="Odzież" />
+        <Pagination numberOfPages={5} />
+      </div>
+    </FlexContainer>
   );
 };
 

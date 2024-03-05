@@ -1,5 +1,4 @@
 import {
-  Layout,
   FlexContainer,
   ExpandableMenu,
   Breadcrumbs,
@@ -28,18 +27,16 @@ const ProductDetails = () => {
       'Nemo et nam quasi in suscipit earum odit laborum repellat quo dolore rem, sequi eaque sapiente quibu',
   };
   return (
-    <Layout>
-      <FlexContainer>
-        <ExpandableMenu />
-        <div style={{ width: '100%' }}>
-          <Breadcrumbs />
-          <FlexContainer>
-            <Photos product={product} />
-            <Details product={product} />
-          </FlexContainer>
-        </div>
-      </FlexContainer>
-    </Layout>
+    <FlexContainer>
+      <ExpandableMenu />
+      <div style={{ width: '100%' }}>
+        <Breadcrumbs />
+        <FlexContainer>
+          <Photos product={product} />
+          <Details product={product} />
+        </FlexContainer>
+      </div>
+    </FlexContainer>
   );
 };
 

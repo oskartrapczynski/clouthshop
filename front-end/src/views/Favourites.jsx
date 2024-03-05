@@ -1,4 +1,4 @@
-import { Layout, FavouritesList } from '@components';
+import { FavouritesList } from '@components';
 
 const favourites = [
   {
@@ -42,11 +42,7 @@ const favourites = [
 ];
 
 const Favourites = () => {
-  return (
-    <Layout>
-      <FavouritesList favourites={favourites} />
-    </Layout>
-  );
+  return <FavouritesList favourites={favourites} />;
 };
 
 export default Favourites;
