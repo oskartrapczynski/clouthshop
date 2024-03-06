@@ -1,37 +1,67 @@
 import styles from './CartSummary.module.css';
 import { FullWidthButton } from '@components';
 import { CAR_ICON } from '@assets';
+import { CurrencyContext } from '@contexts';
+import { useContext } from 'react';
+import { CURRENCIES, CURRENCY_SIGN } from '@constants';
 
 const CartSummary = ({ products }) => {
-  const deliveryPrice = 49;
+  const [currency] = useContext(CurrencyContext);
 
-  const minSumForFreeDelivery = 500;
+  const deliveryCosts = {
+    [CURRENCIES.USD]: 10,
+    [CURRENCIES.PLN]: 49,
+  };
+
+  const minSumsForFreeDelivery = {
+    [CURRENCIES.USD]: 100,
+    [CURRENCIES.PLN]: 500,
+  };
+
+  const currencySign = CURRENCY_SIGN[currency];
+
+  const deliveryCost = deliveryCosts[currency];
+  const minSumForFreeDelivery = minSumsForFreeDelivery[currency];
 
   let sum = 0;
-  products.forEach((item) => (sum += item.pricePLN));
+  products.forEach(
+    (product) =>
+      (sum += currency === CURRENCIES.PLN ? product.pricePLN : product.priceUSD)
+  );
 
-  const totalCost = sum > minSumForFreeDelivery ? sum : sum + deliveryPrice;
-  const deliveryCost = sum > minSumForFreeDelivery ? 0 : deliveryPrice;
+  const totalCost = sum > minSumForFreeDelivery ? sum : sum + deliveryCost;
 
   return (
     <div className={styles.cartSummary}>
       <h2>Podsumowanie</h2>
       <div className={styles.cartRow}>
         <p>Wartość produktów:</p>
-        <p>{sum}</p>
+        <p>
+          {sum}
+          {currencySign}
+        </p>
       </div>
       <div className={styles.cartRow}>
         <p>Koszt dostawy:</p>
-        <p>{deliveryCost}</p>
+        <p>
+          {deliveryCost}
+          {currencySign}
+        </p>
       </div>
       <div className={`${styles.cartRow} ${styles.cartSummaryRow}`}>
         <p>Do zapłaty:</p>
-        <p>{totalCost}</p>
+        <p>
+          {totalCost}
+          {currencySign}
+        </p>
       </div>
       <FullWidthButton isBlack>Do kasy</FullWidthButton>
       <div className={styles.deliveryInfo}>
         <img src={CAR_ICON} />
-        <p>Darmowa dostawa od {minSumForFreeDelivery}zł</p>
+        <p>
+          Darmowa dostawa od {minSumForFreeDelivery}
+          {currencySign}
+        </p>
       </div>
     </div>
   );

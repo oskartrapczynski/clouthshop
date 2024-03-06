@@ -9,10 +9,16 @@ import {
   CategoryMenu,
   MainContent,
 } from '..';
+import { CurrencyContext } from '@contexts';
+import { CURRENCIES } from '@constants';
+import { useState } from 'react';
 
 const Layout = () => {
+  const [currency, setCurrency] = useState(
+    localStorage['selected_currency'] || CURRENCIES.PLN
+  );
   return (
-    <>
+    <CurrencyContext.Provider value={[currency, setCurrency]}>
       <MainContent>
         <TopBar>
           <MainMenu />
@@ -26,7 +32,7 @@ const Layout = () => {
         <Outlet />
       </MainContent>
       <Footer />
-    </>
+    </CurrencyContext.Provider>
   );
 };
 

@@ -24,6 +24,7 @@ import Pagination from './Pagination/Pagination';
 import Photos from './Photos/Photos';
 import Details from './Details/Details';
 import Accordion from './Accordion/Accordion';
+import Price from './Price/Price';
 
 export {
   Footer,
@@ -52,4 +53,5 @@ export {
   Photos,
   Details,
   Accordion,
+  Price,
 };

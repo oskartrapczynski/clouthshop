@@ -1,7 +1,9 @@
 import styles from './CartProduct.module.css';
 import { REMOVE_ICON } from '@assets';
+import { Price } from '@components';
 
 const CartProduct = ({ product }) => {
+  const price = <Price product={product} />;
   return (
     <div className={styles.favouriteProduct}>
       <img src={product.photos[0]} />
@@ -10,11 +12,11 @@ const CartProduct = ({ product }) => {
           <h3>
             {product.brand} {product.productName}
           </h3>
-          <p>{product.pricePLN}zł</p>
+          <p>{price}</p>
         </div>
         <p className={styles.priceRow}>
           <span>Cena: </span>
-          {product.pricePLN}zł
+          {price}
         </p>
         <div className={styles.buttonRow}>
           <button>
