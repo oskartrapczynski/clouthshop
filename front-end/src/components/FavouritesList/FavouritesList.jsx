@@ -6,9 +6,9 @@ const FavouritesList = ({ favourites }) => {
     <CenterContent>
       <div className={styles.favouritesList}>
         <h2>Ulubione</h2>
-        {favourites.map((item) => (
-          <li key={item}>
-            <FavouriteProduct product={item} />
+        {favourites.map((favourite) => (
+          <li key={favourite.id}>
+            <FavouriteProduct favourite={favourite} />
           </li>
         ))}
       </div>

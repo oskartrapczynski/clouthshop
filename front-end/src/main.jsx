@@ -11,14 +11,30 @@ import {
   ProductsList,
   ProductDetails,
 } from '@views';
-import { mainPageLoader, productListLoader, productLoader } from '@api';
+import {
+  mainPageLoader,
+  productListLoader,
+  productLoader,
+  addProductsToFavouritesAction,
+  favouritesLoader,
+  deleteFavouritesAction,
+} from '@api';
 
 const router = createBrowserRouter([
+  {
+    path: 'add-to-favourites/:productId',
+    action: addProductsToFavouritesAction,
+  },
+
+  {
+    path: 'delete-from-favourites/:favouriteId',
+    action: deleteFavouritesAction,
+  },
   {
     path: '',
     element: <Layout />,
     children: [
-      { path: '/ulubione', element: <Favourites /> },
+      { path: '/ulubione', element: <Favourites />, loader: favouritesLoader },
       { path: '/koszyk', element: <Cart /> },
       {
         path: '/:gender?',

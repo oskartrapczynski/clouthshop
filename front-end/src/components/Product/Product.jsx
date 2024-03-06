@@ -1,5 +1,5 @@
 import styles from './Product.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useFetcher } from 'react-router-dom';
 
 const ENDPOINT_TO_PATH_MAPPING = {
   men: 'mezczyzna',
@@ -8,6 +8,7 @@ const ENDPOINT_TO_PATH_MAPPING = {
 };
 
 const Product = ({ product }) => {
+  const { Form } = useFetcher();
   return (
     <Link
       to={`/${ENDPOINT_TO_PATH_MAPPING[product.gender]}/${product.category}/${
@@ -18,7 +19,15 @@ const Product = ({ product }) => {
       <img src={product.photos[0]} />
       <h3>{product.productName}</h3>
       <p>{product.pricePLN}zł</p>
-      <div className={styles.heart}></div>
+      <Form
+        method="POST"
+        action={`/add-to-favourites/${product.id}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button>
+          <div className={styles.heart}></div>
+        </button>
+      </Form>
     </Link>
   );
 };
