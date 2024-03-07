@@ -9,30 +9,42 @@ import {
   CategoryMenu,
   MainContent,
 } from '..';
-import { CurrencyContext } from '@contexts';
+import { CurrencyContext, CartContext } from '@contexts';
 import { CURRENCIES } from '@constants';
-import { useState } from 'react';
+import { getJSONToLocalStorage, setJSONToLocalStorage } from '@utils';
+import { useLocalStorage } from '@hooks';
+import { useContext, useState } from 'react';
 
 const Layout = () => {
-  const [currency, setCurrency] = useState(
-    localStorage['selected_currency'] || CURRENCIES.PLN
+  const [currency, setCurrency] = useLocalStorage(
+    'selected_currency',
+    CURRENCIES.PLN
   );
+  const [cartItems, setCartItems] = useLocalStorage('cart_products', []);
+
+  const addProductToCart = (product) => {
+    const newCart = [...cartItems, product];
+    setCartItems(newCart);
+  };
+
   return (
-    <CurrencyContext.Provider value={[currency, setCurrency]}>
-      <MainContent>
-        <TopBar>
-          <MainMenu />
-          <Logo />
-          <div>
-            <CurrencySelector />
-            <IconMenu />
-          </div>
-        </TopBar>
-        <CategoryMenu />
-        <Outlet />
-      </MainContent>
-      <Footer />
-    </CurrencyContext.Provider>
+    <CartContext.Provider value={[cartItems, addProductToCart]}>
+      <CurrencyContext.Provider value={[currency, setCurrency]}>
+        <MainContent>
+          <TopBar>
+            <MainMenu />
+            <Logo />
+            <div>
+              <CurrencySelector />
+              <IconMenu />
+            </div>
+          </TopBar>
+          <CategoryMenu />
+          <Outlet />
+        </MainContent>
+        <Footer />
+      </CurrencyContext.Provider>
+    </CartContext.Provider>
   );
 };
 

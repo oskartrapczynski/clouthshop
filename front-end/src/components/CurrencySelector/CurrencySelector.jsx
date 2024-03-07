@@ -8,7 +8,6 @@ const CurrencySelector = () => {
 
   const handleChange = (e) => {
     setCurrency(e.currentTarget.value);
-    localStorage['selected_currency'] = e.currentTarget.value;
   };
 
   return (

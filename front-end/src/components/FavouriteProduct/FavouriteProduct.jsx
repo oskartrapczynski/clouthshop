@@ -1,9 +1,12 @@
 import styles from './FavouriteProduct.module.css';
 import { Price } from '@components';
 import { BAG_ICON, REMOVE_ICON } from '@assets';
+import { CartContext } from '@contexts';
 import { useFetcher } from 'react-router-dom';
+import { useContext } from 'react';
 
 const FavouriteProduct = ({ favourite }) => {
+  const [, addProductToCart] = useContext(CartContext);
   const product = favourite.product;
   const { Form } = useFetcher();
 
@@ -33,7 +36,7 @@ const FavouriteProduct = ({ favourite }) => {
               Usuń
             </button>
           </Form>
-          <button>
+          <button onClick={() => addProductToCart(product)}>
             <img src={BAG_ICON} />
             Dodaj do koszyka
           </button>

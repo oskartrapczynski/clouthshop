@@ -15,6 +15,7 @@ export default defineConfig({
       '@hooks': resolve(__dirname, './src/hooks'),
       '@styles': resolve(__dirname, './src/styles'),
       '@views': resolve(__dirname, './src/views'),
+      '@utils': resolve(__dirname, './src/utils'),
     },
   },
   plugins: [react()],
